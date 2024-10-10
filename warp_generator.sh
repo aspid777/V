@@ -20,7 +20,7 @@ peer_endpoint=$(echo "$response" | jq -r '.result.config.peers[0].endpoint.host'
 client_ipv4=$(echo "$response" | jq -r '.result.config.interface.addresses.v4')
 client_ipv6=$(echo "$response" | jq -r '.result.config.interface.addresses.v6')
 port=$(echo "$peer_endpoint" | sed 's/.*:\([0-9]*\)$/\1/')
-peer_endpoint=$(echo "$peer_endpoint" | sed 's/\(.*\):[0-9]*/162.159.193.4/')
+peer_endpoint=$(echo "$peer_endpoint" | sed 's/\(.*\):[0-9]*/162.159.193.5/')
 
 conf=$(cat <<-EOM
 [Interface]
@@ -35,7 +35,7 @@ H2 = 2
 H3 = 3
 H4 = 4
 Address = ${client_ipv4}, ${client_ipv6}
-DNS = 1.1.1.1, 2606:4700:4700::1111, 1.0.0.1, 2606:4700:4700::1001
+DNS = 9.9.9.9, 2606:4700:4700::1111, 1.0.0.1, 2606:4700:4700::1001
 
 [Peer]
 PublicKey = ${peer_pub}
