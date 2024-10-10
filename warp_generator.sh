@@ -20,7 +20,7 @@ peer_endpoint=$(echo "$response" | jq -r '.result.config.peers[0].endpoint.host'
 client_ipv4=$(echo "$response" | jq -r '.result.config.interface.addresses.v4')
 client_ipv6=$(echo "$response" | jq -r '.result.config.interface.addresses.v6')
 port=$(echo "$peer_endpoint" | sed 's/.*:\([0-9]*\)$/\1/')
-peer_endpoint=$(echo "$peer_endpoint" | sed 's/\(.*\):[0-9]*/162.159.193.5/')
+peer_endpoint=$(echo "$peer_endpoint" | sed 's/\(.*\):[0-9]*/162.159.193.4/')
 
 conf=$(cat <<-EOM
 [Interface]
