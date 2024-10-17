@@ -24,11 +24,11 @@ client_ipv6=$(echo "$response" | jq -r '.result.config.interface.addresses.v6')
 conf=$(cat <<-EOM
 [Interface]
 PrivateKey = ${priv}
-S1 = 0
-S2 = 0
+S1 = 1
+S2 = 2
 Jc = 4
 Jmin = 40
-Jmax = 70
+Jmax = 256
 H1 = 1
 H2 = 2
 H3 = 3
